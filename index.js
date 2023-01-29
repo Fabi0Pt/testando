@@ -1,13 +1,16 @@
-import { Client } from "whatsapp-web.js";
+import pkg from "whatsapp-web.js";
 import qrcode from "qrcode-terminal";
 
-const client = new Client({
-  puppeteer: {
-    headless: false,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    ignoreDefaultArgs: ["--disable-extensions"],
-  },
-});
+export const connectionChat = async () => {
+  const { Client } = pkg;
+  const client = new Client({
+    puppeteer: {
+      headless: true,
+      args: ["--no-sandbox"],
+      ignoreDefaultArgs: ["--disable-extensions"],
+    },
+  });
+};
 
 client.on("qr", (qr) => {
   console.log("QR received", qr);
