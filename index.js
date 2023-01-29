@@ -13,7 +13,6 @@ export const connectionChat = async () => {
 };
 
 client.on("qr", (qr) => {
-  console.log("QR received", qr);
   qrcode.generate(qr, { small: true });
 });
 
